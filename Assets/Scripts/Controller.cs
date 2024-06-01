@@ -16,26 +16,42 @@ public class Controller : MonoBehaviour
     {
          transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-         if (Input.GetKeyDown(KeyCode.A));
+         if (Input.GetKey(KeyCode.A))
          {
              RotateLT();
          }
 
-          if (Input.GetKeyDown(KeyCode.D));
+          if (Input.GetKey(KeyCode.D))
          {
              RotateRT();
          }
     }
 
-    void RotateLT()
+   void RotateLT()
     {
-         transform.Rotate(0, 0, -30);
-         print("wqd");
+        if (Mathf.Round(transform.eulerAngles.z) > 330 ||  Mathf.Round(transform.eulerAngles.z) < 30)
+        {
+            transform.Rotate(0, 0, -30 * Time.deltaTime);
+            print(Mathf.Round(transform.eulerAngles.z));
+        }
+        else if (Mathf.Round(transform.eulerAngles.z) == 30)
+        {
+            transform.Rotate(0, 0, -1);
+        }
+
     }
 
     void RotateRT()
     {
-        transform.Rotate(0, 0, 30);
-        print("rty");
+        if (Mathf.Round(transform.eulerAngles.z) < 30 || Mathf.Round(transform.eulerAngles.z) > 330)
+        {
+            transform.Rotate(0, 0, 30  * Time.deltaTime);
+            print(Mathf.Round(transform.eulerAngles.z));
+        }
+
+        else if (Mathf.Round(transform.eulerAngles.z) == 330)
+        {
+            transform.Rotate(0, 0, 1);
+        }
     }
 }
