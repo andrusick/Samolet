@@ -18,12 +18,12 @@ public class Controller : MonoBehaviour
 
          if (Input.GetKey(KeyCode.A))
          {
-             RotateLT();
+             RotateRT();
          }
 
           if (Input.GetKey(KeyCode.D))
          {
-             RotateRT();
+             RotateLT();
          }
     }
 
